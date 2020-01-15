@@ -150,6 +150,7 @@ namespace SoCraTesFrOrganizer
         {
             List<DateTime> l_Datetime = new List<DateTime>()
             {
+                new DateTime(2020, 10, 29),
             };
             MealsCountColdMeals l_MealsCountColdMeals = new MealsCountColdMeals(l_Datetime);
             var nb = l_MealsCountColdMeals.count();
