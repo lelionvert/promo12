@@ -17,4 +17,9 @@ public class CheckTimeTest {
         Assertions.assertThat(Count.FindChecInkBefore1H(ldt)).isTrue();
     }
 
+    @Test
+    public void FindCheckInAfter21HInThursdayWihtDateTest(){
+        LocalDateTime ldt = LocalDateTime.of(2020, 1,16,22,0);
+        Assertions.assertThat(Count.FindCheckInAfter21HInThursday(ldt)).isTrue();
+    }
 }

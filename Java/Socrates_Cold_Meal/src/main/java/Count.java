@@ -14,4 +14,7 @@ public class Count {
         return lt.isBefore(lt1H);
     }
 
+    public static boolean FindCheckInAfter21HInThursday(LocalDateTime ldt) {
+        return false;
+    }
 }
