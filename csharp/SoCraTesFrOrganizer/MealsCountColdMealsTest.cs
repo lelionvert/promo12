@@ -146,7 +146,7 @@ namespace SoCraTesFrOrganizer
         }
 
         [Test]
-        public void Nohours()
+        public void InvalidDate()
         {
             List<DateTime> datetime = new List<DateTime>()
             {
