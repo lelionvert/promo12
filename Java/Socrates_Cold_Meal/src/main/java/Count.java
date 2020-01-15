@@ -7,4 +7,8 @@ public class Count {
         LocalTime lt = LocalTime.of(ldt.getHour(),ldt.getMinute());
         return lt.isAfter(lt21H);
     }
+
+    public static boolean FindChecInkBefore1H(LocalDateTime ldt) {
+        return true;
+    }
 }
