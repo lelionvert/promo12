@@ -9,7 +9,7 @@ namespace SoCraTesFrOrganizer
     public class MealsCountColdMeals
     {
         private readonly DateTime dateStartColdMeals = new DateTime(2020, 10, 29, 21, 00, 00);
-        private readonly DateTime dateEndColdMeals = new DateTime(2020, 10, 30, 21, 00, 00);
+        private readonly DateTime dateEndColdMeals = new DateTime(2020, 10, 30, 1, 00, 00);
         private List<DateTime> dates;
 
         /*public MealsCountColdMeals(FileStream file)
@@ -23,7 +23,7 @@ namespace SoCraTesFrOrganizer
 
         public int Count()
         {
-            return dates.Count(e=> e > dateStartColdMeals || e <= dateEndColdMeals);
+            return dates.Count(e=> e > dateStartColdMeals && e <= dateEndColdMeals);
         }
     }
 }
