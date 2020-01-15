@@ -76,5 +76,47 @@ namespace SoCraTesFrOrganizer
 
             Assert.AreEqual(1, nb);
         }
+
+        [Test]
+        public void CountColdMealDatesDifferentDayReturn1()
+        {
+            List<DateTime> l_Datetime = new List<DateTime>()
+            {
+                new DateTime(2020, 10, 29, 23, 00, 00),
+                new DateTime(2020, 10, 30, 22, 00, 00)
+            };
+            MealsCountColdMeals l_MealsCountColdMeals = new MealsCountColdMeals(l_Datetime);
+            var nb = l_MealsCountColdMeals.count();
+
+            Assert.AreEqual(1, nb);
+        }
+
+        [Test]
+        public void CountColdMealDatesDifferentDayReturn2()
+        {
+            List<DateTime> l_Datetime = new List<DateTime>()
+            {
+                new DateTime(2020, 10, 29, 23, 00, 00),
+                new DateTime(2020, 10, 30, 00, 00, 00)
+            };
+            MealsCountColdMeals l_MealsCountColdMeals = new MealsCountColdMeals(l_Datetime);
+            var nb = l_MealsCountColdMeals.count();
+
+            Assert.AreEqual(2, nb);
+        }
+
+        [Test]
+        public void CountColdMealSameDayReturn1()
+        {
+            List<DateTime> l_Datetime = new List<DateTime>()
+            {
+                new DateTime(2020, 10, 29, 23, 00, 00),
+                new DateTime(2020, 10, 29, 00, 00, 00)
+            };
+            MealsCountColdMeals l_MealsCountColdMeals = new MealsCountColdMeals(l_Datetime);
+            var nb = l_MealsCountColdMeals.count();
+
+            Assert.AreEqual(1, nb);
+        }
     }
 }

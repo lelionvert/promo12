@@ -23,7 +23,7 @@ namespace SoCraTesFrOrganizer
 
         internal int count()
         {
-            return dates.Count(e=> e.Hour > 21);
+            return dates.Count(e=> (e.Hour > 21 && e.DayOfWeek == DayOfWeek.Thursday) || (e.Hour < 1 && e.DayOfWeek == DayOfWeek.Friday));
         }
     }
 }
