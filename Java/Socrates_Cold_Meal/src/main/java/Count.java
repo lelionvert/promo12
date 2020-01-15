@@ -9,6 +9,9 @@ public class Count {
     }
 
     public static boolean FindChecInkBefore1H(LocalDateTime ldt) {
-        return true;
+        LocalTime lt1H = LocalTime.of(1,0);
+        LocalTime lt = LocalTime.of(ldt.getHour(),ldt.getMinute());
+        return lt.isBefore(lt1H);
     }
+
 }

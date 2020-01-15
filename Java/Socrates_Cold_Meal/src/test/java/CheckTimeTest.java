@@ -16,4 +16,5 @@ public class CheckTimeTest {
         LocalDateTime ldt = LocalDateTime.of(2020,1,17,0,30);
         Assertions.assertThat(Count.FindChecInkBefore1H(ldt)).isTrue();
     }
+
 }
