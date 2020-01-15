@@ -7,6 +7,10 @@ public class ColdMealCounter {
             return false;
         }
 
+        if(date.getHour() == 4){
+            return false;
+        }
+
         return true;
     }
 }
