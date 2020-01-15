@@ -20,7 +20,7 @@ namespace SoCraTesFrOrganizer
         }*/
 
         [Test]
-        public void CountColdMealWithOneDate()
+        public void WithOneDateValid()
         {
             List<DateTime> datetime = new List<DateTime>()
             {
@@ -33,7 +33,7 @@ namespace SoCraTesFrOrganizer
         }
 
         [Test]
-        public void CountColdMealWithTwoDate()
+        public void WithTwoDateValid()
         {
             List<DateTime> datetime = new List<DateTime>()
             {
@@ -47,7 +47,7 @@ namespace SoCraTesFrOrganizer
         }
 
         [Test]
-        public void CountColdMealWithThreeDateReturn2()
+        public void WithThreeDateReturn2()
         {
             List<DateTime> datetime = new List<DateTime>()
             {
@@ -62,7 +62,7 @@ namespace SoCraTesFrOrganizer
         }
 
         [Test]
-        public void CountColdMealWithFourDateReturn1()
+        public void WithFourDateReturn1()
         {
             List<DateTime> datetime = new List<DateTime>()
             {
@@ -78,7 +78,7 @@ namespace SoCraTesFrOrganizer
         }
 
         [Test]
-        public void CountColdMealDatesDifferentDayReturn1()
+        public void DifferentDatesDayReturn1()
         {
             List<DateTime> datetime = new List<DateTime>()
             {
@@ -92,7 +92,7 @@ namespace SoCraTesFrOrganizer
         }
 
         [Test]
-        public void CountColdMealDatesDifferentDayReturn2()
+        public void DifferentDatesDayReturn2()
         {
             List<DateTime> datetime = new List<DateTime>()
             {
@@ -106,7 +106,7 @@ namespace SoCraTesFrOrganizer
         }
 
         [Test]
-        public void CountColdMealSameDayReturn1()
+        public void SameDayDifferentHoursReturn1()
         {
             List<DateTime> datetime = new List<DateTime>()
             {
@@ -120,7 +120,7 @@ namespace SoCraTesFrOrganizer
         }
 
         [Test]
-        public void CountColdMealAt21Hours()
+        public void At21Hours()
         {
             List<DateTime> datetime = new List<DateTime>()
             {
@@ -133,7 +133,7 @@ namespace SoCraTesFrOrganizer
         }
 
         [Test]
-        public void CountColdMealAt1Hours()
+        public void At1Hours()
         {
             List<DateTime> datetime = new List<DateTime>()
             {
@@ -146,7 +146,7 @@ namespace SoCraTesFrOrganizer
         }
 
         [Test]
-        public void CountColdMealNohours()
+        public void Nohours()
         {
             List<DateTime> datetime = new List<DateTime>()
             {
