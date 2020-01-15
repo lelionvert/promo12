@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using NUnit.Framework;
 
 namespace SoCraTesFrOrganizer
@@ -22,7 +23,7 @@ namespace SoCraTesFrOrganizer
 
         internal int count()
         {
-            return dates.Count;
+            return dates.Count(e=> e.Hour > 21);
         }
     }
 }
