@@ -2,10 +2,12 @@ import java.time.LocalDateTime;
 import java.time.Month;
 
 public class ColdMealCounter {
+
     public boolean isColdMeal(LocalDateTime date) {
 
+        LocalDateTime ninePm = LocalDateTime.of(2020, 10, 29, 21, 00);
 
-        if(date.isBefore(LocalDateTime.of(2020, 10, 29, 21, 00))){
+        if(date.isBefore(ninePm)){
             return false;
         }
 
@@ -13,11 +15,9 @@ public class ColdMealCounter {
             return false;
         }
 
-        if(date.isEqual(LocalDateTime.of(2020, 10, 29, 21, 00))){
+        if(date.isEqual(ninePm)){
             return false;
         }
-
-
 
 
         return true;
