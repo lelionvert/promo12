@@ -41,5 +41,11 @@ class IsColdMealTest {
         assertFalse(coldMealCounter.isColdMeal(LocalDateTime.of(2020, 10, 29, 21, 00)));
     }
 
+    @Test
+    void at1am() {
+        ColdMealCounter coldMealCounter = new ColdMealCounter();
+        assertTrue(coldMealCounter.isColdMeal(LocalDateTime.of(2020, 10, 30, 1, 00)));
+    }
+
 
 }
