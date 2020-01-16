@@ -6,24 +6,20 @@ using NUnit.Framework;
 
 namespace SoCraTesFrOrganizer
 {
-    public class MealsCountColdMeals
+    public class ColdMeals
     {
-        private readonly DateTime dateStartColdMeals = new DateTime(2020, 10, 29, 21, 00, 00);
-        private readonly DateTime dateEndColdMeals = new DateTime(2020, 10, 30, 1, 00, 00);
-        private List<DateTime> dates;
+        private List<CheckIn> CheckInDates;
+        private readonly Range ColdMealsRange;
 
-        /*public MealsCountColdMeals(FileStream file)
+        public ColdMeals(List<CheckIn> checkInDates, DateTime startColdMeals, DateTime endColdMeals)
         {
-        }*/
-
-        public MealsCountColdMeals(List<DateTime> datetime)
-        {
-            this.dates = datetime;
+            this.CheckInDates = checkInDates;
+            ColdMealsRange = Range.Of(startColdMeals, endColdMeals);
         }
 
         public int Count()
         {
-            return dates.Count(e=> e > dateStartColdMeals && e <= dateEndColdMeals);
+            return CheckInDates.Count(e=> e.IsInBetweenDate(ColdMealsRange.StartColdMeals, ColdMealsRange.EndColdMeals));
         }
     }
 }

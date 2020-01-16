@@ -12,22 +12,18 @@ namespace SoCraTesFrOrganizer
     [TestFixture]
     public class MealsCountColdMealsTest
     {
-        /*[Test]
-        public void ReadCheckinFile()
-        {
-            MealsCountColdMeals mealsCountColdMeals = new MealsCountColdMeals(new FileStream("",FileMode.Create));
-            Assert.IsNotNull(mealsCountColdMeals);
-        }*/
+        private readonly DateTime StartColdMeals = new DateTime(2020, 10, 29, 21, 00, 00);
+        private readonly DateTime EndColdMeals = new DateTime(2020, 10, 30, 1, 00, 00);
 
         [Test]
         public void WithOneDateValid()
         {
-            List<DateTime> datetime = new List<DateTime>()
+            List<CheckIn> CheckIn = new List<CheckIn>()
             {
-                new DateTime(2020, 10, 29, 23, 00, 00),
+                SoCraTesFrOrganizer.CheckIn.Of("29/10/2020 23:00")
             };
-            MealsCountColdMeals mealsCountColdMeals = new MealsCountColdMeals(datetime);
-            var nb = mealsCountColdMeals.Count();
+            ColdMeals coldMeals = new ColdMeals(CheckIn, StartColdMeals, EndColdMeals);
+            var nb = coldMeals.Count();
             
             Assert.AreEqual(1,nb);
         }
@@ -35,13 +31,13 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void WithTwoDateValid()
         {
-            List<DateTime> datetime = new List<DateTime>()
+            List<CheckIn> datetime = new List<CheckIn>()
             {
-                new DateTime(2020, 10, 29, 23, 00, 00),
-                new DateTime(2020, 10, 29, 22, 00, 00),
+                CheckIn.Of("29/10/2020 23:00"),
+                CheckIn.Of("29/10/2020 22:00")
             };
-            MealsCountColdMeals mealsCountColdMeals = new MealsCountColdMeals(datetime);
-            var nb = mealsCountColdMeals.Count();
+            ColdMeals coldMeals = new ColdMeals(datetime, StartColdMeals, EndColdMeals);
+            var nb = coldMeals.Count();
 
             Assert.AreEqual(2, nb);
         }
@@ -49,14 +45,14 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void WithThreeDateReturn2()
         {
-            List<DateTime> datetime = new List<DateTime>()
+            List<CheckIn> datetime = new List<CheckIn>()
             {
-                new DateTime(2020, 10, 29, 23, 00, 00),
-                new DateTime(2020, 10, 29, 22, 00, 00),
-                new DateTime(2020, 10, 29, 16, 00, 00),
+                CheckIn.Of("29/10/2020 23:00"),
+                CheckIn.Of("29/10/2020 22:00"),
+                CheckIn.Of("29/10/2020 16:00")
             };
-            MealsCountColdMeals mealsCountColdMeals = new MealsCountColdMeals(datetime);
-            var nb = mealsCountColdMeals.Count();
+            ColdMeals coldMeals = new ColdMeals(datetime, StartColdMeals, EndColdMeals);
+            var nb = coldMeals.Count();
 
             Assert.AreEqual(2, nb);
         }
@@ -64,15 +60,15 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void WithFourDateReturn1()
         {
-            List<DateTime> datetime = new List<DateTime>()
+            List<CheckIn> datetime = new List<CheckIn>()
             {
-                new DateTime(2020, 10, 29, 23, 00, 00),
-                new DateTime(2020, 10, 29, 17, 00, 00),
-                new DateTime(2020, 10, 29, 18, 00, 00),
-                new DateTime(2020, 10, 29, 16, 00, 00),
+                CheckIn.Of("29/10/2020 23:00"),
+                CheckIn.Of("29/10/2020 17:00"),
+                CheckIn.Of("29/10/2020 18:00"),
+                CheckIn.Of("29/10/2020 16:00")
             };
-            MealsCountColdMeals mealsCountColdMeals = new MealsCountColdMeals(datetime);
-            var nb = mealsCountColdMeals.Count();
+            ColdMeals coldMeals = new ColdMeals(datetime, StartColdMeals, EndColdMeals);
+            var nb = coldMeals.Count();
 
             Assert.AreEqual(1, nb);
         }
@@ -80,13 +76,13 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void DifferentDatesDayReturn1()
         {
-            List<DateTime> datetime = new List<DateTime>()
+            List<CheckIn> datetime = new List<CheckIn>()
             {
-                new DateTime(2020, 10, 29, 23, 00, 00),
-                new DateTime(2020, 10, 30, 22, 00, 00)
+                CheckIn.Of("29/10/2020 23:00"),
+                CheckIn.Of("30/10/2020 22:00")
             };
-            MealsCountColdMeals mealsCountColdMeals = new MealsCountColdMeals(datetime);
-            var nb = mealsCountColdMeals.Count();
+            ColdMeals coldMeals = new ColdMeals(datetime, StartColdMeals, EndColdMeals);
+            var nb = coldMeals.Count();
 
             Assert.AreEqual(1, nb);
         }
@@ -94,13 +90,13 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void DifferentDatesDayReturn2()
         {
-            List<DateTime> datetime = new List<DateTime>()
+            List<CheckIn> datetime = new List<CheckIn>()
             {
-                new DateTime(2020, 10, 29, 23, 00, 00),
-                new DateTime(2020, 10, 30, 00, 00, 00)
+                CheckIn.Of("29/10/2020 23:00"),
+                CheckIn.Of("30/10/2020 00:00")
             };
-            MealsCountColdMeals mealsCountColdMeals = new MealsCountColdMeals(datetime);
-            var nb = mealsCountColdMeals.Count();
+            ColdMeals coldMeals = new ColdMeals(datetime, StartColdMeals, EndColdMeals);
+            var nb = coldMeals.Count();
 
             Assert.AreEqual(2, nb);
         }
@@ -108,13 +104,13 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void SameDayDifferentHoursReturn1()
         {
-            List<DateTime> datetime = new List<DateTime>()
+            List<CheckIn> datetime = new List<CheckIn>()
             {
-                new DateTime(2020, 10, 29, 23, 00, 00),
-                new DateTime(2020, 10, 29, 00, 00, 00)
+                CheckIn.Of("29/10/2020 23:00"),
+                CheckIn.Of("29/10/2020 00:00")
             };
-            MealsCountColdMeals mealsCountColdMeals = new MealsCountColdMeals(datetime);
-            var nb = mealsCountColdMeals.Count();
+            ColdMeals coldMeals = new ColdMeals(datetime, StartColdMeals, EndColdMeals);
+            var nb = coldMeals.Count();
 
             Assert.AreEqual(1, nb);
         }
@@ -122,12 +118,12 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void At21Hours()
         {
-            List<DateTime> datetime = new List<DateTime>()
+            List<CheckIn> datetime = new List<CheckIn>()
             {
-                new DateTime(2020, 10, 29, 21, 00, 00),
+                CheckIn.Of("29/10/2020 21:00")
             };
-            MealsCountColdMeals mealsCountColdMeals = new MealsCountColdMeals(datetime);
-            var nb = mealsCountColdMeals.Count();
+            ColdMeals coldMeals = new ColdMeals(datetime, StartColdMeals, EndColdMeals);
+            var nb = coldMeals.Count();
 
             Assert.AreEqual(0, nb);
         }
@@ -135,12 +131,12 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void At1Hours()
         {
-            List<DateTime> datetime = new List<DateTime>()
+            List<CheckIn> datetime = new List<CheckIn>()
             {
-                new DateTime(2020, 10, 30, 1, 00, 00),
+                CheckIn.Of("30/10/2020 01:00")
             };
-            MealsCountColdMeals mealsCountColdMeals = new MealsCountColdMeals(datetime);
-            var nb = mealsCountColdMeals.Count();
+            ColdMeals coldMeals = new ColdMeals(datetime, StartColdMeals, EndColdMeals);
+            var nb = coldMeals.Count();
 
             Assert.AreEqual(1, nb);
         }
@@ -148,12 +144,12 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void InvalidDate()
         {
-            List<DateTime> datetime = new List<DateTime>()
+            List<CheckIn> datetime = new List<CheckIn>()
             {
-                new DateTime(2020, 10, 29),
+                CheckIn.Of("29/10/2020")
             };
-            MealsCountColdMeals mealsCountColdMeals = new MealsCountColdMeals(datetime);
-            var nb = mealsCountColdMeals.Count();
+            ColdMeals coldMeals = new ColdMeals(datetime, StartColdMeals, EndColdMeals);
+            var nb = coldMeals.Count();
 
             Assert.AreEqual(0, nb);
         }
