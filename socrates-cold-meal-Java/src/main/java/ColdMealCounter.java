@@ -3,18 +3,17 @@ import java.util.List;
 
 public class ColdMealCounter {
 
-    public boolean isColdMeal(LocalDateTime date) {
-        LocalDateTime ninePm = LocalDateTime.of(2020, 10, 29, 21, 0);
-        LocalDateTime oneAm = LocalDateTime.of(2020, 10, 30, 1, 0);
+    private List<CheckIn> checkIns;
+    private LocalDateTime beginOfColdMeal;
+    private LocalDateTime endOfColdMeal;
 
-        boolean isNotBetween9pmAnd1am = date.isBefore(ninePm) || date.isEqual(ninePm) || date.isAfter(oneAm);
-        if(isNotBetween9pmAnd1am){
-            return false;
-        }
-        return true;
+    public ColdMealCounter(List<CheckIn> checkIns, LocalDateTime beginOfColdMeal, LocalDateTime endOfColdMeal) {
+        this.checkIns = checkIns;
+        this.beginOfColdMeal = beginOfColdMeal;
+        this.endOfColdMeal = endOfColdMeal;
     }
 
-    public int count(List<LocalDateTime> dates) {
-        return (int) dates.stream().filter(this::isColdMeal).count();
+    public int countColdMeals() {
+        return (int) checkIns.stream().filter(checkIn -> checkIn.isBetween(beginOfColdMeal, endOfColdMeal)).count();
     }
 }
