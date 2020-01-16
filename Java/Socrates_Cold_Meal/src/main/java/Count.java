@@ -20,6 +20,6 @@ public class Count {
     }
 
     public static boolean FindChecInkBefore1HInFriday(LocalDateTime ldt) {
-        return true;
+        return ldt.getDayOfWeek().equals(DayOfWeek.FRIDAY) && FindChecInkBefore1H(ldt);
     }
 }
