@@ -8,26 +8,29 @@ import java.util.List;
 public class CountTest {
 
     @Test
-    public void Return1For1CheckInDateColdMealTest(){
-        List<LocalDateTime> checkIn = new ArrayList<LocalDateTime>();
-        checkIn.add(LocalDateTime.of(2020, 1,16,22,0));
-        Assertions.assertThat(Count.ColdMeal(checkIn)).isEqualTo(1);
+    public void return1For1CheckInDateColdMealTest(){
+        List<LocalDateTime> checkIns = new ArrayList<LocalDateTime>();
+        checkIns.add(LocalDateTime.of(2020, 1,16,22,0));
+        Count count = new Count();
+        Assertions.assertThat(count.coldMeal(checkIns)).isEqualTo(1);
     }
 
     @Test
-    public void Return2For2CheckInDateColdMealTest(){
+    public void return2For2CheckInDateColdMealTest(){
         List<LocalDateTime> checkIn = new ArrayList<LocalDateTime>();
         checkIn.add(LocalDateTime.of(2020, 1,16,22,0));
         checkIn.add(LocalDateTime.of(2020, 1,17,0,30));
-        Assertions.assertThat(Count.ColdMeal(checkIn)).isEqualTo(2);
+        Count count = new Count();
+        Assertions.assertThat(count.coldMeal(checkIn)).isEqualTo(2);
     }
 
     @Test
-    public void Return1For1CheckInDateColdMealAndAnotherTimeThursdayTest(){
+    public void return1For1CheckInDateColdMealAndAnotherTimeThursdayTest(){
         List<LocalDateTime> checkIn = new ArrayList<LocalDateTime>();
         checkIn.add(LocalDateTime.of(2020, 1,16,22,0));
         checkIn.add(LocalDateTime.of(2020, 1,16,0,30));
-        Assertions.assertThat(Count.ColdMeal(checkIn)).isEqualTo(1);
+        Count count = new Count();
+        Assertions.assertThat(count.coldMeal(checkIn)).isEqualTo(1);
     }
 
     @Test
@@ -35,7 +38,8 @@ public class CountTest {
         List<LocalDateTime> checkIn = new ArrayList<LocalDateTime>();
         checkIn.add(LocalDateTime.of(2020, 1,16,22,0));
         checkIn.add(LocalDateTime.of(2020, 1,17,2,30));
-        Assertions.assertThat(Count.ColdMeal(checkIn)).isEqualTo(1);
+        Count count = new Count();
+        Assertions.assertThat(count.coldMeal(checkIn)).isEqualTo(1);
     }
 
 
