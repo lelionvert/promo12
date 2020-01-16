@@ -14,6 +14,6 @@ public class ColdMealCounter {
     }
 
     public int count(List<LocalDateTime> dates) {
-        return dates.size();
+        return (int) dates.stream().filter(date -> isColdMeal(date)).count();
     }
 }
