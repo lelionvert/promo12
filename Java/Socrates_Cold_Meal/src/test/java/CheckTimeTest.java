@@ -9,21 +9,21 @@ public class CheckTimeTest {
     public void findCheckInAfter21HInThursdayWihtDateTest(){
         LocalDateTime chekInDate = LocalDateTime.of(2020, 1,16,22,0);
         Count count = new Count();
-        Assertions.assertThat(count.findChecInForColdMeal(chekInDate)).isTrue();
+        Assertions.assertThat(count.findCheckInForColdMeal(chekInDate)).isTrue();
     }
 
     @Test
     public void findCheckInBefore1HInFridayWihtDateTest(){
         LocalDateTime checkInDate = LocalDateTime.of(2020,1,17,0,30);
         Count count = new Count();
-        Assertions.assertThat(count.findChecInForColdMeal(checkInDate)).isTrue();
+        Assertions.assertThat(count.findCheckInForColdMeal(checkInDate)).isTrue();
     }
 
     @Test
     public void findCheckInBetween21HThusdayAnd1HFridayWihtDateTest(){
         LocalDateTime checInDate = LocalDateTime.of(2020,1,16,22,30);
         Count count = new Count();
-        Assertions.assertThat(count.findChecInForColdMeal(checInDate)).isTrue();
+        Assertions.assertThat(count.findCheckInForColdMeal(checInDate)).isTrue();
     }
 
 }
