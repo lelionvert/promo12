@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class ColdMealCounter {
 
@@ -12,5 +13,9 @@ public class ColdMealCounter {
         }
 
         return true;
+    }
+
+    public int count(List<LocalDateTime> dates) {
+        return dates.size();
     }
 }
