@@ -13,7 +13,7 @@ public class Count {
         return checkIn.isAfter(lt21H);
     }
 
-    private boolean findChecInkBefore1H(LocalDateTime ldt) {
+    private boolean isCheckInkBefore1H(LocalDateTime ldt) {
         LocalTime lt = LocalTime.of(ldt.getHour(),ldt.getMinute());
         return lt.isBefore(lt1H);
     }
@@ -23,14 +23,14 @@ public class Count {
     }
 
     private boolean isCheckInkBeforeEnd(LocalDateTime checkInDate) {
-        return checkInDate.getDayOfWeek().equals(DayOfWeek.FRIDAY) && findChecInkBefore1H(checkInDate);
+        return checkInDate.getDayOfWeek().equals(DayOfWeek.FRIDAY) && isCheckInkBefore1H(checkInDate);
     }
 
-    public boolean findCheckInForColdMeal(LocalDateTime ldt) {
+    public boolean isCheckInForColdMeal(LocalDateTime ldt) {
         return isCheckInAfterBegin(ldt) || isCheckInkBeforeEnd(ldt);
     }
 
     public Long coldMeal(List<LocalDateTime> checkIns) {
-        return checkIns.stream().filter(this::findCheckInForColdMeal).count();
+        return checkIns.stream().filter(this::isCheckInForColdMeal).count();
     }
 }
