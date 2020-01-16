@@ -26,6 +26,10 @@ public class Count {
     }
 
     public static boolean FindChecInForColdMeal(LocalDateTime ldt) {
-        return FindCheckInAfter21HInThursday(ldt) && FindChecInkBefore1HInFriday(ldt);
+        return FindCheckInAfter21HInThursday(ldt) || FindChecInkBefore1HInFriday(ldt);
+    }
+
+    public static int ColdMeal(LocalDateTime ldt) {
+        return 1;
     }
 }
