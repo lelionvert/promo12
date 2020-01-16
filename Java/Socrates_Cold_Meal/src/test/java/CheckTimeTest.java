@@ -29,4 +29,10 @@ public class CheckTimeTest {
         Assertions.assertThat(Count.FindChecInkBefore1HInFriday(ldt)).isTrue();
     }
 
+    @Test
+    public void FindCheckInBetween21HThusdayAnd1hFridayWihtDateTest(){
+        LocalDateTime ldt = LocalDateTime.of(2020,1,16,22,30);
+        Assertions.assertThat(Count.FindChecInForColdMeal(ldt)).isTrue();
+    }
+
 }

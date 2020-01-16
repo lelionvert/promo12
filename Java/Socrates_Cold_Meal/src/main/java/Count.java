@@ -22,4 +22,8 @@ public class Count {
     public static boolean FindChecInkBefore1HInFriday(LocalDateTime ldt) {
         return ldt.getDayOfWeek().equals(DayOfWeek.FRIDAY) && FindChecInkBefore1H(ldt);
     }
+
+    public static boolean FindChecInForColdMeal(LocalDateTime ldt) {
+        return true;
+    }
 }
