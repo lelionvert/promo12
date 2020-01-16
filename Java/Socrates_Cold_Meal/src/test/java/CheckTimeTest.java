@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 
 public class CheckTimeTest {
-
+/*
     @Test
     public void findCheckInAfter21HInThursdayWihtDateTest(){
         LocalDateTime chekInDate = LocalDateTime.of(2020, 1,16,22,0);
@@ -25,5 +25,5 @@ public class CheckTimeTest {
         Count count = new Count();
         Assertions.assertThat(count.isCheckInForColdMeal(checInDate)).isTrue();
     }
-
+*/
 }

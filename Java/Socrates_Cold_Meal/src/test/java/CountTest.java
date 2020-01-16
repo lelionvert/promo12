@@ -9,38 +9,37 @@ public class CountTest {
 
     @Test
     public void return1For1CheckInDateColdMealTest(){
-        List<LocalDateTime> checkIns = new ArrayList<LocalDateTime>();
-        checkIns.add(LocalDateTime.of(2020, 1,16,22,0));
+        List<CheckIn> checkIns = new ArrayList<>();
+        checkIns.add(new CheckIn(LocalDateTime.of(2020, 1,16,22,0)));
         Count count = new Count();
         Assertions.assertThat(count.coldMeal(checkIns)).isEqualTo(1);
     }
 
     @Test
     public void return2For2CheckInDateColdMealTest(){
-        List<LocalDateTime> checkIn = new ArrayList<LocalDateTime>();
-        checkIn.add(LocalDateTime.of(2020, 1,16,22,0));
-        checkIn.add(LocalDateTime.of(2020, 1,17,0,30));
+        List<CheckIn> checkIn = new ArrayList<>();
+        checkIn.add(new CheckIn(LocalDateTime.of(2020, 1,16,22,0)));
+        checkIn.add(new CheckIn(LocalDateTime.of(2020, 1,17,0,30)));
         Count count = new Count();
         Assertions.assertThat(count.coldMeal(checkIn)).isEqualTo(2);
     }
 
     @Test
     public void return1For1CheckInDateColdMealAndAnotherTimeThursdayTest(){
-        List<LocalDateTime> checkIn = new ArrayList<LocalDateTime>();
-        checkIn.add(LocalDateTime.of(2020, 1,16,22,0));
-        checkIn.add(LocalDateTime.of(2020, 1,16,0,30));
+        List<CheckIn> checkIn = new ArrayList<>();
+        checkIn.add(new CheckIn(LocalDateTime.of(2020, 1,16,22,0)));
+        checkIn.add(new CheckIn(LocalDateTime.of(2020, 1,16,0,30)));
         Count count = new Count();
         Assertions.assertThat(count.coldMeal(checkIn)).isEqualTo(1);
     }
 
     @Test
     public void Return1For1CheckInDateColdMealAndAnotherTimeFridayTest(){
-        List<LocalDateTime> checkIn = new ArrayList<LocalDateTime>();
-        checkIn.add(LocalDateTime.of(2020, 1,16,22,0));
-        checkIn.add(LocalDateTime.of(2020, 1,17,2,30));
+        List<CheckIn> checkIn = new ArrayList<>();
+        checkIn.add(new CheckIn(LocalDateTime.of(2020, 1,16,22,0)));
+        checkIn.add(new CheckIn(LocalDateTime.of(2020, 1,17,2,30)));
         Count count = new Count();
         Assertions.assertThat(count.coldMeal(checkIn)).isEqualTo(1);
     }
-
 
 }
