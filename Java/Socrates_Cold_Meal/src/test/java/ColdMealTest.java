@@ -5,14 +5,14 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CountTest {
+public class ColdMealTest {
 
     @Test
     public void return1For1CheckInDateColdMealTest(){
         List<CheckIn> checkIns = new ArrayList<>();
         checkIns.add(new CheckIn(LocalDateTime.of(2020, 1,16,22,0)));
-        Count count = new Count();
-        Assertions.assertThat(count.coldMeal(checkIns)).isEqualTo(1);
+        ColdMeal coldMeal = new ColdMeal();
+        Assertions.assertThat(coldMeal.count(checkIns)).isEqualTo(1);
     }
 
     @Test
@@ -20,8 +20,8 @@ public class CountTest {
         List<CheckIn> checkIn = new ArrayList<>();
         checkIn.add(new CheckIn(LocalDateTime.of(2020, 1,16,22,0)));
         checkIn.add(new CheckIn(LocalDateTime.of(2020, 1,17,0,30)));
-        Count count = new Count();
-        Assertions.assertThat(count.coldMeal(checkIn)).isEqualTo(2);
+        ColdMeal coldMeal = new ColdMeal();
+        Assertions.assertThat(coldMeal.count(checkIn)).isEqualTo(2);
     }
 
     @Test
@@ -29,8 +29,8 @@ public class CountTest {
         List<CheckIn> checkIn = new ArrayList<>();
         checkIn.add(new CheckIn(LocalDateTime.of(2020, 1,16,22,0)));
         checkIn.add(new CheckIn(LocalDateTime.of(2020, 1,16,0,30)));
-        Count count = new Count();
-        Assertions.assertThat(count.coldMeal(checkIn)).isEqualTo(1);
+        ColdMeal coldMeal = new ColdMeal();
+        Assertions.assertThat(coldMeal.count(checkIn)).isEqualTo(1);
     }
 
     @Test
@@ -38,8 +38,8 @@ public class CountTest {
         List<CheckIn> checkIn = new ArrayList<>();
         checkIn.add(new CheckIn(LocalDateTime.of(2020, 1,16,22,0)));
         checkIn.add(new CheckIn(LocalDateTime.of(2020, 1,17,2,30)));
-        Count count = new Count();
-        Assertions.assertThat(count.coldMeal(checkIn)).isEqualTo(1);
+        ColdMeal coldMeal = new ColdMeal();
+        Assertions.assertThat(coldMeal.count(checkIn)).isEqualTo(1);
     }
 
 }

@@ -8,4 +8,11 @@ public class ReadFileTest {
     public void Read70DateTest() throws IOException {
         Assertions.assertThat(ReadFile.read().size()).isEqualTo(70);
     }
+
+    /*@Test
+    public void invalidDate(){
+        assertThrows(DateTimeParseException.class, () -> {
+            CheckIn.of("32/10/2020 19:32", "dd/MM/yyyy HH:mm");
+        });
+    }*/
 }
