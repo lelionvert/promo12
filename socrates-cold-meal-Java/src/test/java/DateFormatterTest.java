@@ -9,7 +9,8 @@ class DateFormatterTest {
     @Test
     public void validDate(){
         DateFormatter dateFormatter = new DateFormatter();
-        assertThat(dateFormatter.textToDate("29/10/2020 19:32")).isEqualTo(LocalDateTime.of(2020, 10, 29, 19, 32));
+        assertThat(dateFormatter.textToDate("29/10/2020 19:32", "dd/MM/yyyy HH:mm"))
+                .isEqualTo(LocalDateTime.of(2020, 10, 29, 19, 32));
     }
 
 }
