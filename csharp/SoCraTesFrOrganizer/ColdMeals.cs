@@ -19,7 +19,7 @@ namespace SoCraTesFrOrganizer
 
         public int Count()
         {
-            return CheckInDates.Count(e=> e.IsInBetweenDate(ColdMealsRange.StartColdMeals, ColdMealsRange.EndColdMeals));
+            return CheckInDates.Count(e=> e.IsBetweenDate(ColdMealsRange.StartColdMeals, ColdMealsRange.EndColdMeals));
         }
     }
 }

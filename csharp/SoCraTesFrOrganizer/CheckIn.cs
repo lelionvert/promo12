@@ -22,7 +22,7 @@ namespace SoCraTesFrOrganizer
             CheckInDate = checkInDate;
         }
 
-        public bool IsInBetweenDate(DateTime StartDate, DateTime EndDate)
+        public bool IsBetweenDate(DateTime StartDate, DateTime EndDate)
         {
             return CheckInDate > StartDate && CheckInDate <= EndDate;
         }

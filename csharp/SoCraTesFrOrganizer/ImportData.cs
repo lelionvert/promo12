@@ -10,15 +10,15 @@ namespace SoCraTesFrOrganizer
 {
     public class ImportData
     {
-        public List<string> ReadFile()
+        public List<string> ReadFile(string filePath)
         {
             List<string> fileContents;
             try
             {
-                using (var reader = new StreamReader(@""))
+                using (var reader = new StreamReader(filePath))
                 {
                     fileContents = new List<string>();
-                    while (Equals(!reader.EndOfStream))
+                    while (!reader.EndOfStream)
                     {
                         string line = reader.ReadLine();
                         if(string.IsNullOrEmpty(line) || !line.Contains(";"))
