@@ -1,6 +1,7 @@
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 
 public class Count {
 
@@ -29,7 +30,13 @@ public class Count {
         return FindCheckInAfter21HInThursday(ldt) || FindChecInkBefore1HInFriday(ldt);
     }
 
-    public static int ColdMeal(LocalDateTime ldt) {
-        return 1;
+    public static int ColdMeal(List<LocalDateTime> checkIn) {
+        int count = 0;
+        for (LocalDateTime ldt : checkIn){
+            if (FindChecInForColdMeal(ldt)){
+                count++;
+            }
+        }
+        return count;
     }
 }
