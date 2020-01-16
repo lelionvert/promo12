@@ -13,35 +13,38 @@ namespace SoCraTesFrOrganizer
     public class ImportDataTest
     {
         private string pathFile = @"C:\Users\lenovo 3\source\repos\SoCraTesFrOrganizer\csharp\SoCraTesFrOrganizer\";
+        private ImportData Import;
+
+        [SetUp]
+        public void Init()
+        {
+            Import = new ImportData();
+        }
 
         [Test]
         public void ReadFileWithValidData()
         {
-            ImportData data = new ImportData();
-            List<string> result = data.ReadFile(Path.Combine(pathFile, "Checkins.csv"));
+            List<string> result = Import.ReadFile(Path.Combine(pathFile, "Checkins.csv"));
             Assert.IsTrue(result?.Count > 0);
         }
 
         [Test]
         public void ReadFileNotExit()
         {
-            ImportData data = new ImportData();
-            Assert.Catch<InvalidDataSourceException>(() => data.ReadFile(Path.Combine(pathFile, "CheckinsWrong.csv")));
+            Assert.Catch<InvalidDataSourceException>(() => Import.ReadFile(Path.Combine(pathFile, "CheckinsWrong.csv")));
         }
 
         [Test]
         public void ReadFileWithWrongData()
         {
-            ImportData data = new ImportData();
-            Assert.Catch<InvalidDataSourceException>(() => data.ReadFile(Path.Combine(pathFile, "CheckinsWrongData.csv")));
+            Assert.Catch<InvalidDataSourceException>(() => Import.ReadFile(Path.Combine(pathFile, "CheckinsWrongData.csv")));
         }
 
         [Test]
-        public void MapDataToCheckin()
+        public void MapDataToCheckIn()
         {
-            ImportData data = new ImportData();
-            List<string> fileContents = data.ReadFile(Path.Combine(pathFile, "Checkins.csv"));
-            List<CheckIn> result = data.MapToCheckIn(fileContents);
+            List<string> fileContents = Import.ReadFile(Path.Combine(pathFile, "Checkins.csv"));
+            List<CheckIn> result = Import.MapToCheckIn(fileContents);
 
             Assert.IsTrue(result?.Count > 0);
         }
