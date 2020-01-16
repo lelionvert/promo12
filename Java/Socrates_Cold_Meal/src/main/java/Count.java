@@ -1,3 +1,4 @@
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -15,6 +16,6 @@ public class Count {
     }
 
     public static boolean FindCheckInAfter21HInThursday(LocalDateTime ldt) {
-        return false;
+        return ldt.getDayOfWeek().equals(DayOfWeek.THURSDAY) && FindCheckInAfter21H(ldt);
     }
 }
