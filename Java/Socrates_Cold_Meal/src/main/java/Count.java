@@ -32,6 +32,7 @@ public class Count {
 
     public static int ColdMeal(List<LocalDateTime> checkIn) {
         int count = 0;
+        // TODO convert to stream
         for (LocalDateTime ldt : checkIn){
             if (FindChecInForColdMeal(ldt)){
                 count++;
