@@ -29,5 +29,16 @@ public class CountColdMeals {
         assertThat(coldMealCounter.count(dates)).isEqualTo(0);
     }
 
+    @Test
+    void someDatesAreColdMeal() {
+        List<LocalDateTime> dates = new ArrayList<>();
+        dates.add(LocalDateTime.of(2020, 10, 29, 21, 30));
+        dates.add(LocalDateTime.of(2020, 12, 29, 22, 0));
+        dates.add(LocalDateTime.of(2020, 10, 30, 3, 30));
+        dates.add(LocalDateTime.of(2020, 10, 29, 23, 0));
+        ColdMealCounter coldMealCounter = new ColdMealCounter();
+        assertThat(coldMealCounter.count(dates)).isEqualTo(2);
+    }
+
 
 }
