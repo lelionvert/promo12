@@ -18,4 +18,8 @@ public class Count {
     public static boolean FindCheckInAfter21HInThursday(LocalDateTime ldt) {
         return ldt.getDayOfWeek().equals(DayOfWeek.THURSDAY) && FindCheckInAfter21H(ldt);
     }
+
+    public static boolean FindChecInkBefore1HInFriday(LocalDateTime ldt) {
+        return true;
+    }
 }
