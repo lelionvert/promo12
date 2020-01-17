@@ -15,8 +15,9 @@
             {
                 return 610;
             }
-
-            return 510;
+            if (_typeRoom == TypeRoom.Twin)
+                return 510;
+            return 410;
         }
     }
 }

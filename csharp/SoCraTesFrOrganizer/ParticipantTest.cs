@@ -27,5 +27,14 @@ namespace SoCraTesFrOrganizer
             int price = participant.CalculatePrice();
             Assert.AreEqual(510, price);
         }
+
+        [Test]
+        public void TripleRoom()
+        {
+            TypeRoom typeRoom = TypeRoom.Triple;
+            Participant participant = new Participant(typeRoom);
+            int price = participant.CalculatePrice();
+            Assert.AreEqual(410, price);
+        }
     }
 }
