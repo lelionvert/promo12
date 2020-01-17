@@ -3,8 +3,9 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class PriceTest {
+class CalculPriceTest {
 
     @Test
     void allMealsAndSingleAccommodation() {
@@ -53,5 +54,4 @@ public class PriceTest {
 
         assertThat(calculPrice.price(booking)).isEqualTo(240);
     }
-
 }

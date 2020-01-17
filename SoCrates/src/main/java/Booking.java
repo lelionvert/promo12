@@ -14,8 +14,11 @@ public class Booking {
         this.accommodationType = accommodationType;
     }
 
-
     public int getAccommodationPrice() {
         return this.accommodationType.getPrice();
+    }
+
+    public int numberOfMissedMeals(LocalDateTime firstDayMealsTime, LocalDateTime secondDayMealsTime) {
+        return 0;
     }
 }
