@@ -44,7 +44,7 @@ namespace SoCraTesFrOrganizer
         public void MapDataToCheckIn()
         {
             List<string> fileContents = Import.ReadFile(Path.Combine(pathFile, "Checkins.csv"));
-            List<CheckIn> result = Import.MapToCheckIn(fileContents);
+            List<Check> result = Import.MapToCheckIn(fileContents);
 
             Assert.IsTrue(result?.Count > 0);
         }

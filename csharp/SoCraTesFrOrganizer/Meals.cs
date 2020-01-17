@@ -15,12 +15,12 @@ namespace SoCraTesFrOrganizer
             ColdMealsRange = Range.Of(startColdMeals, endColdMeals);
         }
 
-        public bool isParticipeMeal(CheckIn checkIn)
+        public bool isParticipeMeal(Check check)
         {
-            return checkIn.IsBetweenDate(ColdMealsRange.StartColdMeals, ColdMealsRange.EndColdMeals);
+            return check.IsBetweenDate(ColdMealsRange.StartColdMeals, ColdMealsRange.EndColdMeals);
         }
 
-        public int Count(List<CheckIn> CheckInDates)
+        public int Count(List<Check> CheckInDates)
         {
             return CheckInDates.Count(e=> e.IsBetweenDate(ColdMealsRange.StartColdMeals, ColdMealsRange.EndColdMeals));
         }

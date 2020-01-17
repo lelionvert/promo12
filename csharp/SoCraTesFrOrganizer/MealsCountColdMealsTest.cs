@@ -18,9 +18,9 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void WithOneDateValid()
         {
-            List<CheckIn> CheckIn = new List<CheckIn>()
+            List<Check> CheckIn = new List<Check>()
             {
-                SoCraTesFrOrganizer.CheckIn.Of("29/10/2020 23:00")
+                SoCraTesFrOrganizer.Check.Of("29/10/2020 23:00")
             };
             Meals meals = new Meals(StartColdMeals, EndColdMeals);
             var nb = meals.Count(CheckIn);
@@ -31,10 +31,10 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void WithTwoDateValid()
         {
-            List<CheckIn> datetime = new List<CheckIn>()
+            List<Check> datetime = new List<Check>()
             {
-                CheckIn.Of("29/10/2020 23:00"),
-                CheckIn.Of("29/10/2020 22:00")
+                Check.Of("29/10/2020 23:00"),
+                Check.Of("29/10/2020 22:00")
             };
             Meals meals = new Meals(StartColdMeals, EndColdMeals);
             var nb = meals.Count(datetime);
@@ -45,11 +45,11 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void WithThreeDateReturn2()
         {
-            List<CheckIn> datetime = new List<CheckIn>()
+            List<Check> datetime = new List<Check>()
             {
-                CheckIn.Of("29/10/2020 23:00"),
-                CheckIn.Of("29/10/2020 22:00"),
-                CheckIn.Of("29/10/2020 16:00")
+                Check.Of("29/10/2020 23:00"),
+                Check.Of("29/10/2020 22:00"),
+                Check.Of("29/10/2020 16:00")
             };
             Meals meals = new Meals(StartColdMeals, EndColdMeals);
             var nb = meals.Count(datetime);
@@ -60,12 +60,12 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void WithFourDateReturn1()
         {
-            List<CheckIn> datetime = new List<CheckIn>()
+            List<Check> datetime = new List<Check>()
             {
-                CheckIn.Of("29/10/2020 23:00"),
-                CheckIn.Of("29/10/2020 17:00"),
-                CheckIn.Of("29/10/2020 18:00"),
-                CheckIn.Of("29/10/2020 16:00")
+                Check.Of("29/10/2020 23:00"),
+                Check.Of("29/10/2020 17:00"),
+                Check.Of("29/10/2020 18:00"),
+                Check.Of("29/10/2020 16:00")
             };
             Meals meals = new Meals(StartColdMeals, EndColdMeals);
             var nb = meals.Count(datetime);
@@ -76,10 +76,10 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void DifferentDatesDayReturn1()
         {
-            List<CheckIn> datetime = new List<CheckIn>()
+            List<Check> datetime = new List<Check>()
             {
-                CheckIn.Of("29/10/2020 23:00"),
-                CheckIn.Of("30/10/2020 22:00")
+                Check.Of("29/10/2020 23:00"),
+                Check.Of("30/10/2020 22:00")
             };
             Meals meals = new Meals(StartColdMeals, EndColdMeals);
             var nb = meals.Count(datetime);
@@ -90,10 +90,10 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void DifferentDatesDayReturn2()
         {
-            List<CheckIn> datetime = new List<CheckIn>()
+            List<Check> datetime = new List<Check>()
             {
-                CheckIn.Of("29/10/2020 23:00"),
-                CheckIn.Of("30/10/2020 00:00")
+                Check.Of("29/10/2020 23:00"),
+                Check.Of("30/10/2020 00:00")
             };
             Meals meals = new Meals(StartColdMeals, EndColdMeals);
             var nb = meals.Count(datetime);
@@ -104,10 +104,10 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void SameDayDifferentHoursReturn1()
         {
-            List<CheckIn> datetime = new List<CheckIn>()
+            List<Check> datetime = new List<Check>()
             {
-                CheckIn.Of("29/10/2020 23:00"),
-                CheckIn.Of("29/10/2020 00:00")
+                Check.Of("29/10/2020 23:00"),
+                Check.Of("29/10/2020 00:00")
             };
             Meals meals = new Meals(StartColdMeals, EndColdMeals);
             var nb = meals.Count(datetime);
@@ -118,9 +118,9 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void At21Hours()
         {
-            List<CheckIn> datetime = new List<CheckIn>()
+            List<Check> datetime = new List<Check>()
             {
-                CheckIn.Of("29/10/2020 21:00")
+                Check.Of("29/10/2020 21:00")
             };
             Meals meals = new Meals(StartColdMeals, EndColdMeals);
             var nb = meals.Count(datetime);
@@ -131,9 +131,9 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void At1Hours()
         {
-            List<CheckIn> datetime = new List<CheckIn>()
+            List<Check> datetime = new List<Check>()
             {
-                CheckIn.Of("30/10/2020 01:00")
+                Check.Of("30/10/2020 01:00")
             };
             Meals meals = new Meals(StartColdMeals, EndColdMeals);
             var nb = meals.Count(datetime);
@@ -144,9 +144,9 @@ namespace SoCraTesFrOrganizer
         [Test]
         public void InvalidDate()
         {
-            List<CheckIn> datetime = new List<CheckIn>()
+            List<Check> datetime = new List<Check>()
             {
-                CheckIn.Of("29/10/2020")
+                Check.Of("29/10/2020")
             };
             Meals meals = new Meals(StartColdMeals, EndColdMeals);
             var nb = meals.Count(datetime);

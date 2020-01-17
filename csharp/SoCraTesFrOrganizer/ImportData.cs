@@ -35,9 +35,9 @@ namespace SoCraTesFrOrganizer
         }
 
 
-        public List<CheckIn> MapToCheckIn(List<string> fileContents)
+        public List<Check> MapToCheckIn(List<string> fileContents)
         {
-            List<CheckIn> checkIns = fileContents.Select(line => CheckIn.Of(line.Split(';')[1])).ToList();
+            List<Check> checkIns = fileContents.Select(line => Check.Of(line.Split(';')[1])).ToList();
 
             return checkIns;
         }

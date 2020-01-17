@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Meals.cs" />
-    <Compile Include="CheckIn.cs" />
+    <Compile Include="Check.cs" />
     <Compile Include="ImportData.cs" />
     <Compile Include="ImportDataTest.cs" />
     <Compile Include="MealsCountColdMealsTest.cs" />

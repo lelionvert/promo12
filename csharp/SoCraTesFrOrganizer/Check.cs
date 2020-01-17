@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace SoCraTesFrOrganizer
 {
-    public class CheckIn
+    public class Check
     {
-        public static CheckIn Of(string checkInDate)
+        public static Check Of(string checkInDate)
         {
             DateTime result;
             DateTime.TryParse(checkInDate, out result);
-            return new CheckIn(result);
+            return new Check(result);
         }
 
         private DateTime CheckInDate;
 
-        private CheckIn(DateTime checkInDate)
+        private Check(DateTime checkInDate)
         {
             CheckInDate = checkInDate;
         }
