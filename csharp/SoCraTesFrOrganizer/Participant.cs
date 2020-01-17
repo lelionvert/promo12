@@ -7,6 +7,7 @@ namespace SoCraTesFrOrganizer
         private readonly TypeRoom _typeRoom;
         private readonly CheckIn _checkIn;
         private readonly Meals _meal;
+        private static int PriceMeal = 40;
 
         public Participant(TypeRoom typeRoom, CheckIn checkIn, Meals meal)
         {
@@ -18,8 +19,8 @@ namespace SoCraTesFrOrganizer
         public int CalculatePrice()
         {
             int price = (int) _typeRoom;
-            if (_meal != null && !_meal.isParticipeMeal(_checkIn))
-                return 200;
+            if (_meal != null && !_meal.isParticipeMeal(_checkIn)) price -= PriceMeal;
+
             return price;
         }
     }

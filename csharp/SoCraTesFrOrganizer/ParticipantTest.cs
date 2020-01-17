@@ -47,7 +47,7 @@ namespace SoCraTesFrOrganizer
         }
 
         [Test]
-        public void NoRoomAndFirstMealInclude()
+        public void NoRoomAndFirstMealIncludeAtThursday()
         {
             TypeRoom typeRoom = TypeRoom.NoAccommodation;
             CheckIn checkin = CheckIn.Of("29/10/2020 20:00");
