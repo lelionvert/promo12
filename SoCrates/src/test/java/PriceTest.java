@@ -43,4 +43,16 @@ public class PriceTest {
         assertThat(calculPrice.price(booking)).isEqualTo(410);
     }
 
+    @Test
+    void allMealsAndNoAccommodation() {
+        CalculPrice calculPrice = new CalculPrice();
+        String name = "a";
+        LocalDateTime dateCheckIn = LocalDateTime.of(2020, 10, 29, 19, 0 );;
+        LocalDateTime dateCheckout = LocalDateTime.of(2020, 11, 1, 18, 0 );
+        AccommodationType accommodationType = AccommodationType.NONE;
+        Booking booking = new Booking(name, dateCheckIn, dateCheckout, accommodationType);
+
+        assertThat(calculPrice.price(booking)).isEqualTo(240);
+    }
+
 }
