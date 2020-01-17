@@ -22,8 +22,8 @@ namespace SoCraTesFrOrganizer
             {
                 SoCraTesFrOrganizer.CheckIn.Of("29/10/2020 23:00")
             };
-            ColdMeals coldMeals = new ColdMeals(StartColdMeals, EndColdMeals);
-            var nb = coldMeals.Count(CheckIn);
+            Meals meals = new Meals(StartColdMeals, EndColdMeals);
+            var nb = meals.Count(CheckIn);
             
             Assert.AreEqual(1,nb);
         }
@@ -36,8 +36,8 @@ namespace SoCraTesFrOrganizer
                 CheckIn.Of("29/10/2020 23:00"),
                 CheckIn.Of("29/10/2020 22:00")
             };
-            ColdMeals coldMeals = new ColdMeals(StartColdMeals, EndColdMeals);
-            var nb = coldMeals.Count(datetime);
+            Meals meals = new Meals(StartColdMeals, EndColdMeals);
+            var nb = meals.Count(datetime);
 
             Assert.AreEqual(2, nb);
         }
@@ -51,8 +51,8 @@ namespace SoCraTesFrOrganizer
                 CheckIn.Of("29/10/2020 22:00"),
                 CheckIn.Of("29/10/2020 16:00")
             };
-            ColdMeals coldMeals = new ColdMeals(StartColdMeals, EndColdMeals);
-            var nb = coldMeals.Count(datetime);
+            Meals meals = new Meals(StartColdMeals, EndColdMeals);
+            var nb = meals.Count(datetime);
 
             Assert.AreEqual(2, nb);
         }
@@ -67,8 +67,8 @@ namespace SoCraTesFrOrganizer
                 CheckIn.Of("29/10/2020 18:00"),
                 CheckIn.Of("29/10/2020 16:00")
             };
-            ColdMeals coldMeals = new ColdMeals(StartColdMeals, EndColdMeals);
-            var nb = coldMeals.Count(datetime);
+            Meals meals = new Meals(StartColdMeals, EndColdMeals);
+            var nb = meals.Count(datetime);
 
             Assert.AreEqual(1, nb);
         }
@@ -81,8 +81,8 @@ namespace SoCraTesFrOrganizer
                 CheckIn.Of("29/10/2020 23:00"),
                 CheckIn.Of("30/10/2020 22:00")
             };
-            ColdMeals coldMeals = new ColdMeals(StartColdMeals, EndColdMeals);
-            var nb = coldMeals.Count(datetime);
+            Meals meals = new Meals(StartColdMeals, EndColdMeals);
+            var nb = meals.Count(datetime);
 
             Assert.AreEqual(1, nb);
         }
@@ -95,8 +95,8 @@ namespace SoCraTesFrOrganizer
                 CheckIn.Of("29/10/2020 23:00"),
                 CheckIn.Of("30/10/2020 00:00")
             };
-            ColdMeals coldMeals = new ColdMeals(StartColdMeals, EndColdMeals);
-            var nb = coldMeals.Count(datetime);
+            Meals meals = new Meals(StartColdMeals, EndColdMeals);
+            var nb = meals.Count(datetime);
 
             Assert.AreEqual(2, nb);
         }
@@ -109,8 +109,8 @@ namespace SoCraTesFrOrganizer
                 CheckIn.Of("29/10/2020 23:00"),
                 CheckIn.Of("29/10/2020 00:00")
             };
-            ColdMeals coldMeals = new ColdMeals(StartColdMeals, EndColdMeals);
-            var nb = coldMeals.Count(datetime);
+            Meals meals = new Meals(StartColdMeals, EndColdMeals);
+            var nb = meals.Count(datetime);
 
             Assert.AreEqual(1, nb);
         }
@@ -122,8 +122,8 @@ namespace SoCraTesFrOrganizer
             {
                 CheckIn.Of("29/10/2020 21:00")
             };
-            ColdMeals coldMeals = new ColdMeals(StartColdMeals, EndColdMeals);
-            var nb = coldMeals.Count(datetime);
+            Meals meals = new Meals(StartColdMeals, EndColdMeals);
+            var nb = meals.Count(datetime);
 
             Assert.AreEqual(0, nb);
         }
@@ -135,8 +135,8 @@ namespace SoCraTesFrOrganizer
             {
                 CheckIn.Of("30/10/2020 01:00")
             };
-            ColdMeals coldMeals = new ColdMeals(StartColdMeals, EndColdMeals);
-            var nb = coldMeals.Count(datetime);
+            Meals meals = new Meals(StartColdMeals, EndColdMeals);
+            var nb = meals.Count(datetime);
 
             Assert.AreEqual(1, nb);
         }
@@ -148,8 +148,8 @@ namespace SoCraTesFrOrganizer
             {
                 CheckIn.Of("29/10/2020")
             };
-            ColdMeals coldMeals = new ColdMeals(StartColdMeals, EndColdMeals);
-            var nb = coldMeals.Count(datetime);
+            Meals meals = new Meals(StartColdMeals, EndColdMeals);
+            var nb = meals.Count(datetime);
 
             Assert.AreEqual(0, nb);
         }

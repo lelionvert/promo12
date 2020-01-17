@@ -6,13 +6,18 @@ using NUnit.Framework;
 
 namespace SoCraTesFrOrganizer
 {
-    public class ColdMeals
+    public class Meals
     {
         private readonly Range ColdMealsRange;
 
-        public ColdMeals(DateTime startColdMeals, DateTime endColdMeals)
+        public Meals(DateTime startColdMeals, DateTime endColdMeals)
         {
             ColdMealsRange = Range.Of(startColdMeals, endColdMeals);
+        }
+
+        public bool isParticipeMeal(CheckIn checkIn)
+        {
+            return checkIn.IsBetweenDate(ColdMealsRange.StartColdMeals, ColdMealsRange.EndColdMeals);
         }
 
         public int Count(List<CheckIn> CheckInDates)

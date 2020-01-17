@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColdMeals.cs" />
+    <Compile Include="Meals.cs" />
     <Compile Include="CheckIn.cs" />
     <Compile Include="ImportData.cs" />
     <Compile Include="ImportDataTest.cs" />
