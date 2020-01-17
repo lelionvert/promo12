@@ -19,6 +19,17 @@ public class Booking {
     }
 
     public int numberOfMissedMeals(LocalDateTime firstDayMealsTime, LocalDateTime secondDayMealsTime) {
+
+        if(dateCheckout.isBefore(secondDayMealsTime) && dateCheckIn.isAfter(firstDayMealsTime)){
+            return 2;
+        }
+        if(dateCheckout.isBefore(secondDayMealsTime)) {
+            return 1;
+        }
+        if(dateCheckIn.isAfter(firstDayMealsTime)){
+            return 1;
+
+        }
         return 0;
     }
 }
