@@ -8,16 +8,14 @@ namespace SoCraTesFrOrganizer
 {
     public class ColdMeals
     {
-        private List<CheckIn> CheckInDates;
         private readonly Range ColdMealsRange;
 
-        public ColdMeals(List<CheckIn> checkInDates, DateTime startColdMeals, DateTime endColdMeals)
+        public ColdMeals(DateTime startColdMeals, DateTime endColdMeals)
         {
-            this.CheckInDates = checkInDates;
             ColdMealsRange = Range.Of(startColdMeals, endColdMeals);
         }
 
-        public int Count()
+        public int Count(List<CheckIn> CheckInDates)
         {
             return CheckInDates.Count(e=> e.IsBetweenDate(ColdMealsRange.StartColdMeals, ColdMealsRange.EndColdMeals));
         }
