@@ -20,7 +20,7 @@ namespace SoCraTesFrOrganizer
         {
             List<Check> CheckIn = new List<Check>()
             {
-                SoCraTesFrOrganizer.Check.Of("29/10/2020 23:00")
+                Check.Of("29/10/2020 23:00")
             };
             Meals meals = new Meals(StartColdMeals, EndColdMeals);
             var nb = meals.Count(CheckIn);
