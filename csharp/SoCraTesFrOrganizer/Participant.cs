@@ -11,7 +11,12 @@
 
         public int CalculatePrice()
         {
-            return 610;
+            if (_typeRoom == TypeRoom.Single)
+            {
+                return 610;
+            }
+
+            return 510;
         }
     }
 }
