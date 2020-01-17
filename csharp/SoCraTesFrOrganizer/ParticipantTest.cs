@@ -109,5 +109,38 @@ namespace SoCraTesFrOrganizer
             int price = participant.CalculatePrice();
             Assert.AreEqual(530, price);
         }
+
+        [Test]
+        public void SingleRoomWithTwoMeals()
+        {
+            TypeRoom typeRoom = TypeRoom.Single;
+            Check checkIn = Check.Of("29/10/2020 18:00");
+            Check checkOut = Check.Of("01/11/2020 15:00");
+            Participant participant = new Participant(typeRoom, checkIn, checkOut, _mealIn, _mealOut);
+            int price = participant.CalculatePrice();
+            Assert.AreEqual(610, price);
+        }
+
+        [Test]
+        public void NoRoomWith1Meals()
+        {
+            TypeRoom typeRoom = TypeRoom.NoAccommodation;
+            Check checkIn = Check.Of("29/10/2020 18:00");
+            Check checkOut = Check.Of("01/11/2020 11:00");
+            Participant participant = new Participant(typeRoom, checkIn, checkOut, _mealIn, _mealOut);
+            int price = participant.CalculatePrice();
+            Assert.AreEqual(200, price);
+        }
+
+        [Test]
+        public void TripleRoomWithNoMeals()
+        {
+            TypeRoom typeRoom = TypeRoom.Triple;
+            Check checkIn = Check.Of("30/10/2020 8:00");
+            Check checkOut = Check.Of("01/11/2020 11:00");
+            Participant participant = new Participant(typeRoom, checkIn, checkOut, _mealIn, _mealOut);
+            int price = participant.CalculatePrice();
+            Assert.AreEqual(330, price);
+        }
     }
 }

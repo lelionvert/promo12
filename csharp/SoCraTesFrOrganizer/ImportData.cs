@@ -34,12 +34,43 @@ namespace SoCraTesFrOrganizer
             return fileContents;
         }
 
-
         public List<Check> MapToCheckIn(List<string> fileContents)
         {
-            List<Check> checkIns = fileContents.Select(line => Check.Of(line.Split(';')[1])).ToList();
+            List<Check> checkIns = fileContents.Select(GetCheckIn).ToList();
 
             return checkIns;
+        }
+
+        private Check GetCheckIn(string line)
+        {
+            return Check.Of(line.Split(';')[1]);
+        }
+
+        private Check GetCheckOut(string line)
+        {
+            return Check.Of(line.Split(';')[2]);
+        }
+
+        private TypeRoom GetTypeRoom(string line)
+        {
+            TypeRoom typeRoom;
+            Enum.TryParse(line.Split(';')[3], true, out typeRoom);
+            return typeRoom;
+        }
+
+        public List<Participant> MapToParticipant(List<string> fileContents)
+        {
+            List<Participant> participants = fileContents.Select(Selector).ToList();
+
+            return participants;
+        }
+
+        private Participant Selector(string line)
+        {
+            Check CheckIn = GetCheckIn(line);
+            Check CheckOut = GetCheckOut(line);
+            TypeRoom typeRoom = GetTypeRoom(line);
+            return new Participant(typeRoom, CheckIn, CheckOut, null, null);
         }
     }
 }

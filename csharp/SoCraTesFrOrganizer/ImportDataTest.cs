@@ -48,6 +48,16 @@ namespace SoCraTesFrOrganizer
 
             Assert.IsTrue(result?.Count > 0);
         }
+
+
+        [Test]
+        public void MapDataToParticipant()
+        {
+            List<string> fileContents = Import.ReadFile(Path.Combine(pathFile, "Choices.csv"));
+            List<Participant> participants = Import.MapToParticipant(fileContents);
+
+            Assert.IsTrue(participants?.Count > 0);
+        }
     }
 }
 
