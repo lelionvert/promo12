@@ -15,4 +15,7 @@ public class Booking {
     }
 
 
+    public int getAccommodationPrice() {
+        return this.accommodationType.price;
+    }
 }

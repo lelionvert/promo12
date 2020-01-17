@@ -18,5 +18,4 @@ public class CheckIn {
         return new CheckIn(LocalDateTime.parse(dateString, formatter));
     }
 
-
 }

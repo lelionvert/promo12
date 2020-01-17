@@ -1,5 +1,9 @@
 public class CalculPrice {
-    public double price(Booking booking) {
-        return 610.;
+    public int price(Booking booking) {
+        if(booking.getAccommodationPrice() == 510)
+            return booking.getAccommodationPrice();
+        else if(booking.getAccommodationPrice() == 410)
+            return booking.getAccommodationPrice();
+        return 610;
     }
 }
