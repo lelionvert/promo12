@@ -77,5 +77,16 @@ namespace SoCraTesFrOrganizer
             int price = participant.CalculatePrice();
             Assert.AreEqual(240, price);
         }
+
+        [Test]
+        public void NoRoomAndLastMealInclude()
+        {
+            TypeRoom typeRoom = TypeRoom.Single;
+            CheckIn checkin = CheckIn.Of("01/11/2020 15:00");
+            Meals meal = new Meals(new DateTime(2020, 11, 01, 14, 0, 0), new DateTime(2020, 11, 2, 0, 0, 0));
+            Participant participant = new Participant(typeRoom, checkin, meal);
+            int price = participant.CalculatePrice();
+            Assert.AreEqual(610, price);
+        }
     }
 }
