@@ -54,7 +54,7 @@ namespace SoCraTesFrOrganizer
         public void MapDataToParticipant()
         {
             List<string> fileContents = Import.ReadFile(Path.Combine(pathFile, "Choices.csv"));
-            List<Participant> participants = Import.MapToParticipant(fileContents);
+            List<Booking> participants = Import.MapToParticipant(fileContents);
 
             Assert.IsTrue(participants?.Count > 0);
         }

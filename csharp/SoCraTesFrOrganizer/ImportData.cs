@@ -41,6 +41,13 @@ namespace SoCraTesFrOrganizer
             return checkIns;
         }
 
+        public List<Booking> MapToParticipant(List<string> fileContents)
+        {
+            List<Booking> participants = fileContents.Select(GetParticipant).ToList();
+
+            return participants;
+        }
+
         private Check GetCheckIn(string line)
         {
             return Check.Of(line.Split(';')[1]);
@@ -58,19 +65,12 @@ namespace SoCraTesFrOrganizer
             return typeRoom;
         }
 
-        public List<Participant> MapToParticipant(List<string> fileContents)
-        {
-            List<Participant> participants = fileContents.Select(Selector).ToList();
-
-            return participants;
-        }
-
-        private Participant Selector(string line)
+        private Booking GetParticipant(string line)
         {
             Check CheckIn = GetCheckIn(line);
             Check CheckOut = GetCheckOut(line);
             TypeRoom typeRoom = GetTypeRoom(line);
-            return new Participant(typeRoom, CheckIn, CheckOut, null, null);
+            return new Booking(typeRoom, CheckIn, CheckOut);
         }
     }
 }

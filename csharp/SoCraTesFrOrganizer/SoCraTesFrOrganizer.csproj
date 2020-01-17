@@ -53,8 +53,8 @@
     <Compile Include="Check.cs" />
     <Compile Include="ImportData.cs" />
     <Compile Include="ImportDataTest.cs" />
-    <Compile Include="MealsCountColdMealsTest.cs" />
-    <Compile Include="Participant.cs" />
+    <Compile Include="ColdMealsTest.cs" />
+    <Compile Include="Booking.cs" />
     <Compile Include="ParticipantTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

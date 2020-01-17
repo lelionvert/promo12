@@ -9,15 +9,16 @@ namespace SoCraTesFrOrganizer
     public class Meals
     {
         private readonly Range ColdMealsRange;
+        private static int PRICEMEAL = 40;
 
         public Meals(DateTime startColdMeals, DateTime endColdMeals)
         {
             ColdMealsRange = Range.Of(startColdMeals, endColdMeals);
         }
 
-        public bool isParticipeMeal(Check check)
+        public int isNotParticipeMeal(Check check)
         {
-            return check.IsBetweenDate(ColdMealsRange.StartColdMeals, ColdMealsRange.EndColdMeals);
+            return check.IsBetweenDate(ColdMealsRange.StartColdMeals, ColdMealsRange.EndColdMeals) ? 0 : PRICEMEAL;
         }
 
         public int Count(List<Check> CheckInDates)

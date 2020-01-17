@@ -10,7 +10,7 @@ using NUnit.Framework;
 namespace SoCraTesFrOrganizer
 {
     [TestFixture]
-    public class MealsCountColdMealsTest
+    public class ColdMealsTest
     {
         private readonly DateTime StartColdMeals = new DateTime(2020, 10, 29, 21, 00, 00);
         private readonly DateTime EndColdMeals = new DateTime(2020, 10, 30, 1, 00, 00);
