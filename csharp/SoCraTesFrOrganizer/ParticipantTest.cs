@@ -10,11 +10,14 @@ namespace SoCraTesFrOrganizer
     [TestFixture]
     public class ParticipantTest
     {
+        private Meals _mealOut = new Meals(new DateTime(2020, 11, 01, 14, 0, 0), new DateTime(2020, 11, 2, 0, 0, 0));
+        private Meals _mealIn = new Meals(new DateTime(2020, 10, 29, 16, 0, 0), new DateTime(2020, 10, 30, 1, 0, 0));
+
         [Test]
         public void SingleRoom()
         {
             TypeRoom typeRoom = TypeRoom.Single;
-            Participant participant = new Participant(typeRoom, Check.Of("29/10/2020 20:00"), Check.Of("01/11/2020 15:00"), null, new Meals(new DateTime(2020, 11, 01, 14, 0, 0), new DateTime(2020, 11, 2, 0, 0, 0)));
+            Participant participant = new Participant(typeRoom, null, null, null, null);
             int price = participant.CalculatePrice();
             Assert.AreEqual(610, price);
         }
@@ -23,7 +26,7 @@ namespace SoCraTesFrOrganizer
         public void TwinRoom()
         {
             TypeRoom typeRoom = TypeRoom.Twin;
-            Participant participant = new Participant(typeRoom, Check.Of("29/10/2020 20:00"), Check.Of("01/11/2020 15:00"), null, new Meals(new DateTime(2020, 11, 01, 14, 0, 0), new DateTime(2020, 11, 2, 0, 0, 0)));
+            Participant participant = new Participant(typeRoom, null, null, null, null);
             int price = participant.CalculatePrice();
             Assert.AreEqual(510, price);
         }
@@ -32,7 +35,7 @@ namespace SoCraTesFrOrganizer
         public void TripleRoom()
         {
             TypeRoom typeRoom = TypeRoom.Triple;
-            Participant participant = new Participant(typeRoom, Check.Of("29/10/2020 20:00"), Check.Of("01/11/2020 15:00"), null, new Meals(new DateTime(2020, 11, 01, 14, 0, 0), new DateTime(2020, 11, 2, 0, 0, 0)));
+            Participant participant = new Participant(typeRoom, null, null, null, null);
             int price = participant.CalculatePrice();
             Assert.AreEqual(410, price);
         }
@@ -41,7 +44,7 @@ namespace SoCraTesFrOrganizer
         public void NoRoom()
         {
             TypeRoom typeRoom = TypeRoom.NoAccommodation;
-            Participant participant = new Participant(typeRoom, Check.Of("29/10/2020 20:00"), Check.Of("01/11/2020 15:00"), null, new Meals(new DateTime(2020, 11, 01, 14, 0, 0), new DateTime(2020, 11, 2, 0, 0, 0)));
+            Participant participant = new Participant(typeRoom, null, null, null, null);
             int price = participant.CalculatePrice();
             Assert.AreEqual(240, price);
         }
@@ -50,8 +53,8 @@ namespace SoCraTesFrOrganizer
         public void NoRoomAndFirstMealIncludeAtThursday()
         {
             TypeRoom typeRoom = TypeRoom.NoAccommodation;
-            Check checkin = Check.Of("29/10/2020 20:00");
-            Participant participant = new Participant(typeRoom, checkin, Check.Of("01/11/2020 15:00"), null, new Meals(new DateTime(2020, 11, 01, 14, 0, 0), new DateTime(2020, 11, 2, 0, 0, 0)));
+            Check checkIn = Check.Of("29/10/2020 20:00");
+            Participant participant = new Participant(typeRoom, checkIn, null, _mealIn, null);
             int price = participant.CalculatePrice();
             Assert.AreEqual(240, price);
         }
@@ -60,9 +63,8 @@ namespace SoCraTesFrOrganizer
         public void NoRoomAndFirstMealNotInclude()
         {
             TypeRoom typeRoom = TypeRoom.NoAccommodation;
-            Check checkin = Check.Of("30/10/2020 02:00");
-            Meals meal = new Meals(new DateTime(2020, 10, 29, 16, 0, 0), new DateTime(2020, 10, 30, 1,0,0));
-            Participant participant = new Participant(typeRoom, checkin, Check.Of("01/11/2020 15:00"), meal, new Meals(new DateTime(2020, 11, 01, 14, 0, 0), new DateTime(2020, 11, 2, 0, 0, 0)));
+            Check checkIn = Check.Of("30/10/2020 02:00");
+            Participant participant = new Participant(typeRoom, checkIn, null, _mealIn, null);
             int price = participant.CalculatePrice();
             Assert.AreEqual(200, price);
         }
@@ -71,9 +73,8 @@ namespace SoCraTesFrOrganizer
         public void NoRoomAndFirstMealIncludeAtFriday()
         {
             TypeRoom typeRoom = TypeRoom.NoAccommodation;
-            Check checkin = Check.Of("30/10/2020 00:30");
-            Meals meal = new Meals(new DateTime(2020, 10, 29, 16, 0, 0), new DateTime(2020, 10, 30, 1, 0, 0));
-            Participant participant = new Participant(typeRoom, checkin, Check.Of("01/11/2020 15:00"), meal, new Meals(new DateTime(2020, 11, 01, 14, 0, 0), new DateTime(2020, 11, 2, 0, 0, 0)));
+            Check checkIn = Check.Of("30/10/2020 00:30");
+            Participant participant = new Participant(typeRoom, checkIn, null, _mealIn, null);
             int price = participant.CalculatePrice();
             Assert.AreEqual(240, price);
         }
@@ -83,8 +84,7 @@ namespace SoCraTesFrOrganizer
         {
             TypeRoom typeRoom = TypeRoom.Single;
             Check checkOut = Check.Of("01/11/2020 15:00");
-            Meals meal = new Meals(new DateTime(2020, 11, 01, 14, 0, 0), new DateTime(2020, 11, 2, 0, 0, 0));
-            Participant participant = new Participant(typeRoom, checkOut, Check.Of("01/11/2020 15:00"), meal, new Meals(new DateTime(2020, 11, 01, 14, 0, 0), new DateTime(2020, 11, 2, 0, 0, 0)));
+            Participant participant = new Participant(typeRoom, null, checkOut, null, _mealOut);
             int price = participant.CalculatePrice();
             Assert.AreEqual(610, price);
         }
@@ -94,9 +94,7 @@ namespace SoCraTesFrOrganizer
         {
             TypeRoom typeRoom = TypeRoom.Single;
             Check checkOut = Check.Of("01/11/2020 13:00");
-            Meals mealIn = new Meals(new DateTime(2020, 11, 01, 14, 0, 0), new DateTime(2020, 11, 2, 0, 0, 0));
-            Meals mealOut = new Meals(new DateTime(2020, 11, 01, 14, 0, 0), new DateTime(2020, 11, 2, 0, 0, 0));
-            Participant participant = new Participant(typeRoom, checkOut, Check.Of("01/11/2020 15:00"), mealIn, mealOut);
+            Participant participant = new Participant(typeRoom, null, checkOut, null, _mealOut);
             int price = participant.CalculatePrice();
             Assert.AreEqual(570, price);
         }
@@ -107,10 +105,7 @@ namespace SoCraTesFrOrganizer
             TypeRoom typeRoom = TypeRoom.Single;
             Check checkIn = Check.Of("30/10/2020 02:00");
             Check checkOut = Check.Of("01/11/2020 13:00");
-            Meals mealIn = new Meals(new DateTime(2020, 10, 29, 16, 0, 0), new DateTime(2020, 10, 30, 1, 0, 0));
-            Meals mealOut = new Meals(new DateTime(2020, 11, 01, 14, 0, 0), new DateTime(2020, 11, 2, 0, 0, 0));
-            
-            Participant participant = new Participant(typeRoom,checkIn, checkOut, mealIn, mealOut);
+            Participant participant = new Participant(typeRoom,checkIn, checkOut, _mealIn, _mealOut);
             int price = participant.CalculatePrice();
             Assert.AreEqual(530, price);
         }
