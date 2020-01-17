@@ -2,9 +2,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class accomodationPriceTest {
+public class AccommodationPriceTest {
 
-/*    @Test
+    @Test
     public void Single(){
         assertThat(AccommodationType.SINGLE.getPrice()).isEqualTo(610);
     }
@@ -22,5 +22,5 @@ public class accomodationPriceTest {
     @Test
     public void NoOne(){
         assertThat(AccommodationType.NONE.getPrice()).isEqualTo(240);
-    }*/
+    }
 }

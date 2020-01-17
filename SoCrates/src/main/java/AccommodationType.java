@@ -5,9 +5,13 @@ public enum AccommodationType {
     TRIPLE(410),
     NONE(240);
 
-    public int price;
+    private int price;
 
     AccommodationType(int price) {
         this.price = price;
+    }
+
+    public int getPrice() {
+        return this.price;
     }
 }
