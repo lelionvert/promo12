@@ -18,17 +18,13 @@ public class Booking {
         return this.accommodationType.getPrice();
     }
 
-    public int numberOfMissedMeals(LocalDateTime firstDayMealsTime, LocalDateTime secondDayMealsTime) {
+    public int numberOfMissedMeals(LocalDateTime firstDayMealsTime, LocalDateTime lastDayMealsTime) {
 
-        if(dateCheckout.isBefore(secondDayMealsTime) && dateCheckIn.isAfter(firstDayMealsTime)){
+        if(dateCheckout.isBefore(lastDayMealsTime) && dateCheckIn.isAfter(firstDayMealsTime)){
             return 2;
         }
-        if(dateCheckout.isBefore(secondDayMealsTime)) {
+        if (dateCheckout.isBefore(lastDayMealsTime) || dateCheckIn.isAfter(firstDayMealsTime)) {
             return 1;
-        }
-        if(dateCheckIn.isAfter(firstDayMealsTime)){
-            return 1;
-
         }
         return 0;
     }
