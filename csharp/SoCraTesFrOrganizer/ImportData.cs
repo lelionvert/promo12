@@ -8,7 +8,7 @@ using NUnit.Framework.Internal;
 
 namespace SoCraTesFrOrganizer
 {
-    public class ImportData
+    public class ImportData : IImportData
     {
         public List<string> ReadFile(string filePath)
         {
@@ -34,6 +34,7 @@ namespace SoCraTesFrOrganizer
             return fileContents;
         }
 
+        //ToDo : removed
         public List<Check> MapToCheckIn(List<string> fileContents)
         {
             List<Check> checkIns = fileContents.Select(GetCheckIn).ToList();
@@ -41,11 +42,20 @@ namespace SoCraTesFrOrganizer
             return checkIns;
         }
 
-        public List<Booking> MapToParticipant(List<string> fileContents)
+        public List<Booking> MapToBooking(List<string> fileContents)
         {
-            List<Booking> participants = fileContents.Select(GetParticipant).ToList();
+            List<Booking> participants = fileContents.Select(GetBooking).ToList();
 
             return participants;
+        }
+
+        private Booking GetBooking(string line)
+        {
+            Check CheckIn = GetCheckIn(line);
+            Check CheckOut = GetCheckOut(line);
+            TypeRoom typeRoom = GetTypeRoom(line);
+            Diet diet = GetDiet(line);
+            return new Booking(typeRoom, CheckIn, CheckOut, diet);
         }
 
         private Check GetCheckIn(string line)
@@ -65,12 +75,9 @@ namespace SoCraTesFrOrganizer
             return typeRoom;
         }
 
-        private Booking GetParticipant(string line)
+        private Diet GetDiet(string line)
         {
-            Check CheckIn = GetCheckIn(line);
-            Check CheckOut = GetCheckOut(line);
-            TypeRoom typeRoom = GetTypeRoom(line);
-            return new Booking(typeRoom, CheckIn, CheckOut);
+            throw new NotImplementedException();
         }
     }
 }
