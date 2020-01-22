@@ -55,22 +55,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Diet.cs" />
-    <Compile Include="IImportData.cs" />
+    <Compile Include="Enum\Diet.cs" />
+    <Compile Include="Communication\IReaderData.cs" />
     <Compile Include="Meals.cs" />
     <Compile Include="Check.cs" />
-    <Compile Include="ImportData.cs" />
-    <Compile Include="Test\ImportDataTest.cs" />
-    <Compile Include="Test\ColdMealsTest.cs" />
+    <Compile Include="CsvReaderData.cs" />
+    <Compile Include="Test\API\BookingTest.cs" />
+    <Compile Include="Test\API\ImportDataTest.cs" />
+    <Compile Include="Test\API\MealsTest.cs" />
+    <Compile Include="Test\Meal\CountColdMealsTest.cs" />
     <Compile Include="Booking.cs" />
-    <Compile Include="Test\BookingTest.cs" />
+    <Compile Include="Test\Registration\CalculatePriceTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Range.cs" />
     <Compile Include="Organizer.cs" />
-    <Compile Include="Test\OrganizerTest.cs" />
-    <Compile Include="Test\RangeTest.cs" />
-    <Compile Include="TypeRoom.cs" />
+    <Compile Include="Test\Meal\CountingCoversDietTest.cs" />
+    <Compile Include="Test\API\RangeTest.cs" />
+    <Compile Include="Enum\TypeRoom.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

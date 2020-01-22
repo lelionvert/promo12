@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
-namespace SoCraTesFrOrganizer
+namespace SoCraTesFrOrganizer.Test.API
 {
     [TestFixture]
     public class RangeTest

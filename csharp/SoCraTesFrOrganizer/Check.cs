@@ -15,16 +15,21 @@ namespace SoCraTesFrOrganizer
             return new Check(result);
         }
 
-        private DateTime CheckInDate;
+        private DateTime CheckDate;
 
-        private Check(DateTime checkInDate)
+        private Check(DateTime checkDate)
         {
-            CheckInDate = checkInDate;
+            CheckDate = checkDate;
         }
 
-        public bool IsBetweenDate(DateTime StartDate, DateTime EndDate)
+        public bool IsBefore(DateTime StartMealsDateTime)
         {
-            return CheckInDate > StartDate && CheckInDate <= EndDate;
+            return CheckDate <= StartMealsDateTime;
+        }
+
+        public bool IsAfter(DateTime EndMealsDateTime)
+        {
+            return EndMealsDateTime < CheckDate;
         }
     }
 }

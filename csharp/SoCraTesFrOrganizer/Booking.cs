@@ -9,7 +9,12 @@ namespace SoCraTesFrOrganizer
         private readonly Check _checkOut;
         private readonly Diet _diet;
 
-        public Booking(TypeRoom typeRoom, Check checkIn, Check checkOut, Diet diet)
+        public static Booking Of(TypeRoom typeRoom, Check checkIn, Check checkOut, Diet diet)
+        {
+            return new Booking(typeRoom, checkIn, checkOut, diet);
+        }
+
+        private Booking(TypeRoom typeRoom, Check checkIn, Check checkOut, Diet diet)
         {
             _typeRoom = typeRoom;
             _checkIn = checkIn;
@@ -27,12 +32,9 @@ namespace SoCraTesFrOrganizer
             get => _checkOut;
         }
 
-        public int CalculatePrice(Meals mealIn, Meals mealOut)
+        public TypeRoom Room
         {
-            int price = (int) _typeRoom;
-            if (mealIn != null) price -= mealIn.IsNotParticipeMeal(_checkIn);
-            if (mealOut != null) price -= mealOut.IsNotParticipeMeal(_checkOut);
-            return price;
+            get => _typeRoom;
         }
     }
 }

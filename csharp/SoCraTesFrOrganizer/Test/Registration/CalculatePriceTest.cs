@@ -8,12 +8,12 @@ using NUnit.Framework;
 namespace SoCraTesFrOrganizer
 {
     [TestFixture]
-    public class ParticipantTest
+    public class CalculatePriceTest
     {
         private Meals _mealOut = new Meals(new DateTime(2020, 11, 01, 14, 0, 0), new DateTime(2020, 11, 2, 0, 0, 0));
         private Meals _mealIn = new Meals(new DateTime(2020, 10, 29, 16, 0, 0), new DateTime(2020, 10, 30, 1, 0, 0));
 
-        [Test]
+        /*[Test]
         public void SingleRoom()
         {
             TypeRoom typeRoom = TypeRoom.Single;
@@ -141,6 +141,6 @@ namespace SoCraTesFrOrganizer
             Booking booking = new Booking(typeRoom, checkIn, checkOut, Diet.Default);
             int price = booking.CalculatePrice(_mealIn, _mealOut);
             Assert.AreEqual(330, price);
-        }
+        }*/
     }
 }

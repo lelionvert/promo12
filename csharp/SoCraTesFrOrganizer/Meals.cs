@@ -9,41 +9,27 @@ namespace SoCraTesFrOrganizer
     public class Meals
     {
         private readonly Range MealsRange;
-        private static int PRICEMEAL = 40;
+        private readonly bool _isColdMeal;
 
-        public Meals(DateTime startColdMeals, DateTime endColdMeals)
+        public int PRICEMEAL { get; } = 40;
+
+        public Meals(DateTime startColdMeals, DateTime endColdMeals, bool isColdMeal = false)
         {
+            _isColdMeal = isColdMeal;
             MealsRange = Range.Of(startColdMeals, endColdMeals);
         }
 
-        public int IsNotParticipeMeal(Check check)
+        public bool IsParticipate(Booking booking)
         {
-            return !IsParticipate(check) ? PRICEMEAL : 0;
+            return booking.CheckIn.IsBefore(MealsRange.StartColdMeals) && booking.CheckOut.IsAfter(MealsRange.EndColdMeals);
         }
 
-        private bool IsParticipate(Check check)
+        public int Count(List<Booking> bookings)
         {
-            return check.IsBetweenDate(MealsRange.StartColdMeals, MealsRange.EndColdMeals);
-        }
+            if (_isColdMeal)
+                return bookings.Count(e => e.CheckIn.IsAfter(MealsRange.StartColdMeals) && e.CheckIn.IsBefore(MealsRange.EndColdMeals));
 
-        public int Count(List<Check> CheckInDates)
-        {
-            return CheckInDates.Count(e=> e.IsBetweenDate(MealsRange.StartColdMeals, MealsRange.EndColdMeals));
-        }
-
-        public bool HasParticipateToMeal(Booking booking)
-        {
-            return IsBefore(booking.CheckIn) && IsAfter(booking.CheckOut) ? true : false;
-        }
-
-        private bool IsAfter(Check checkOut)
-        {
-            return checkOut.IsBefore(MealsRange.StartColdMeals, MealsRange.EndColdMeals);
-        }
-
-        private bool IsBefore(Check checkIn)
-        {
-            return checkIn.IsAfter(MealsRange.StartColdMeals, MealsRange.EndColdMeals);
+            return bookings.Count(e=> e.CheckIn.IsBefore(MealsRange.StartColdMeals) && e.CheckOut.IsAfter(MealsRange.EndColdMeals));
         }
     }
 }

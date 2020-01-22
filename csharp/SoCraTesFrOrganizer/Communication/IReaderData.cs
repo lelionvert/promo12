@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace SoCraTesFrOrganizer
+namespace SoCraTesFrOrganizer.Communication
 {
-    public interface IImportData
+    public interface IReaderData
     {
         List<string> ReadFile(string filePath);
 
