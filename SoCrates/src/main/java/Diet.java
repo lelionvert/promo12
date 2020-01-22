@@ -1,0 +1,3 @@
+public enum Diet {
+    VEGAN, VEGETARIAN, PESCATARIAN, DEFAULT;
+}

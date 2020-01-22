@@ -3,7 +3,7 @@ public enum AccommodationType {
     SINGLE(610),
     TWIN(510),
     TRIPLE(410),
-    NONE(240);
+    EXTERNAL(240);
 
     private int price;
 

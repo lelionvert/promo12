@@ -21,6 +21,6 @@ public class AccommodationPriceTest {
 
     @Test
     public void NoOne(){
-        assertThat(AccommodationType.NONE.getPrice()).isEqualTo(240);
+        assertThat(AccommodationType.EXTERNAL.getPrice()).isEqualTo(240);
     }
 }

@@ -13,7 +13,7 @@ public class BookingTest {
     void zeroMealsMissed() {
         LocalDateTime dateCheckIn = LocalDateTime.of(2020, 10, 29, 19, 0 );
         LocalDateTime dateCheckout = LocalDateTime.of(2020, 11, 1, 18, 0 );
-        Booking booking = new Booking("name", dateCheckIn, dateCheckout, AccommodationType.SINGLE);
+        Booking booking = new Booking( dateCheckIn, dateCheckout, AccommodationType.SINGLE);
 
         assertThat(booking.numberOfMissedMeals(firstDayMealsTime, secondDayMealsTime)).isEqualTo(0);
     }
@@ -23,7 +23,7 @@ public class BookingTest {
     void lastDayMealMissed() {
         LocalDateTime dateCheckIn = LocalDateTime.of(2020, 10, 29, 19, 0 );
         LocalDateTime dateCheckout = LocalDateTime.of(2020, 11, 1, 13, 0 );
-        Booking booking = new Booking("name", dateCheckIn, dateCheckout, AccommodationType.SINGLE);
+        Booking booking = new Booking( dateCheckIn, dateCheckout, AccommodationType.SINGLE);
 
         assertThat(booking.numberOfMissedMeals(firstDayMealsTime, secondDayMealsTime)).isEqualTo(1);
     }
@@ -33,7 +33,7 @@ public class BookingTest {
     void firstDayMealMissed() {
         LocalDateTime dateCheckIn = LocalDateTime.of(2020, 10, 30, 2, 0);
         LocalDateTime dateCheckout = LocalDateTime.of(2020, 11, 1, 18, 0);
-        Booking booking = new Booking("name", dateCheckIn, dateCheckout, AccommodationType.SINGLE);
+        Booking booking = new Booking( dateCheckIn, dateCheckout, AccommodationType.SINGLE);
 
         assertThat(booking.numberOfMissedMeals(firstDayMealsTime, secondDayMealsTime)).isEqualTo(1);
 
@@ -43,7 +43,7 @@ public class BookingTest {
     void firstDayAndLastDayMealsMissed(){
         LocalDateTime dateCheckIn = LocalDateTime.of(2020, 10, 30, 2, 0 );
         LocalDateTime dateCheckout = LocalDateTime.of(2020, 11, 1, 13, 0 );
-        Booking booking = new Booking("name", dateCheckIn, dateCheckout, AccommodationType.SINGLE);
+        Booking booking = new Booking( dateCheckIn, dateCheckout, AccommodationType.SINGLE);
 
         assertThat(booking.numberOfMissedMeals(firstDayMealsTime, secondDayMealsTime)).isEqualTo(2);
     }

@@ -1,14 +1,15 @@
 import java.time.LocalDateTime;
 
-public class CalculPrice {
+public class CalculatePrice {
 
     LocalDateTime firstDayMealsTime;
     LocalDateTime lastDayMealsTime;
-    int mealPrice = 40;
+    int mealPrice;
 
-    public CalculPrice(LocalDateTime firstDayMealsTime, LocalDateTime lastDayMealsTime) {
+    public CalculatePrice(LocalDateTime firstDayMealsTime, LocalDateTime lastDayMealsTime, int mealPrice) {
         this.firstDayMealsTime = firstDayMealsTime;
         this.lastDayMealsTime = lastDayMealsTime;
+        this.mealPrice = mealPrice;
     }
 
     public int price(Booking booking) {
@@ -24,4 +25,5 @@ public class CalculPrice {
     public void setMealPrice(int mealPrice) {
         this.mealPrice = mealPrice;
     }
+
 }
