@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 
 
-namespace SoCraTesFrOrganizer
+namespace SoCraTesFrOrganizer.Test.Meal
 {
     [TestFixture]
     public class ColdMealsTest

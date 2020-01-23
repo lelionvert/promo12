@@ -8,7 +8,7 @@ using Moq;
 using NUnit.Framework;
 using SoCraTesFrOrganizer.Communication;
 
-namespace SoCraTesFrOrganizer
+namespace SoCraTesFrOrganizer.Test.Meal
 {
     [TestFixture]
     public class CountingCoversDietTest
